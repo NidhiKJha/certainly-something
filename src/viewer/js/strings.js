@@ -45,8 +45,8 @@ export const strings = {
     },
     '1.3.6.1.4.1.311.21.2': {
       name: {
-        short: 'MS CertSrv',
-        long:  'Microsoft CertSrv',
+        short: 'CERTSRV_PREVIOUS_CERT_HASH',
+        long:  'Microsoft Certificate Service Previous Certificate Hash',
       }
     },
     '1.3.6.1.5.5.7.1.24': {

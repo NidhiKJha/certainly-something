@@ -371,17 +371,17 @@
             {{/each}}
           {{/if}}
 
-          {{! Microsoft CertSrv }}
-          {{#if this.ext.mape}}
+          {{! Microsoft Certificate Service Previous Certificate Hash }}
+          {{#if this.ext.certSrv}}
             <div class="panel-section-subheader">
               <span>
-                {{#if this.ext.mape.critical}}<img class="critical" alt="critical extension" title="This extension has been marked as critical, meaning that clients must reject the certificate if they don't understand it." src="../icons/critical.svg">{{/if~}}
-                Microsoft Application Policy Extension
+                {{#if this.ext.certSrv.critical}}<img class="critical" alt="critical extension" title="This extension has been marked as critical, meaning that clients must reject the certificate if they don't understand it." src="../icons/critical.svg">{{/if~}}
+                Microsoft Certificate Service Previous Certificate Hash
               </span>
             </div>
             <div class="panel-list-item">
               <div class="text">Major Version</div>
-              <div class="text breakable">{{ this.ext.mape.applicationPolicy.parsedValue }}</div>
+              <div class="text breakable">{{ this.ext.certSrv.applicationPolicy.parsedValue }}</div>
             </div>
           {{/if}}
 

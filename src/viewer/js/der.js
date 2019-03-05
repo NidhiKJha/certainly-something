@@ -336,7 +336,7 @@ export const parse = async (der) => {
     policies: cp,
   }
 
-  // get the Microsoft CertSrv
+  // get the Microsoft Certificate Service Previous Certificate Hash
   let certSrv = {
     applicationPolicy: getX509Ext(x509.extensions,
       '1.3.6.1.4.1.311.21.2').parsedValue
