@@ -43,6 +43,12 @@ export const strings = {
         long: 'Authority Information Access'
       }
     },
+    '1.3.6.1.4.1.311.21.2': {
+      name: {
+        short: 'MS CertSrv',
+        long:  'Microsoft CertSrv',
+      }
+    },
     '1.3.6.1.5.5.7.1.24': {
       name: {
         short: 'OCSP Stapling',

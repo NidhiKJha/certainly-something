@@ -60,6 +60,7 @@ export const parse = async (der) => {
   const supportedExtensions = [
     '1.3.6.1.4.1.11129.2.4.2',  // embedded scts
     '1.3.6.1.5.5.7.1.1',        // authority info access
+    '1.3.6.1.4.1.311.21.2',     // Microsoft CertSrv
     '1.3.6.1.5.5.7.1.24',       // ocsp stapling
     '2.5.29.14',                // subject key identifier
     '2.5.29.15',                // key usages
@@ -335,6 +336,18 @@ export const parse = async (der) => {
     policies: cp,
   }
 
+  // get the Microsoft CertSrv
+  let certSrv = {
+    applicationPolicy: getX509Ext(x509.extensions,
+      '1.3.6.1.4.1.311.21.2').parsedValue
+  }
+  if (certSrv.applicationPolicy) {
+    certSrv = {
+      critical: criticalExtensions.includes('1.3.6.1.4.1.311.21.2'),
+      templateMajorVersion: certSrv.applicationPolicy.templateMajorVersion.value,
+    };
+  }
+
   // determine which extensions weren't supported
   let unsupportedExtensions = [];
   x509.extensions.forEach(ext => {
@@ -355,6 +368,7 @@ export const parse = async (der) => {
       cp,
       eKeyUsages,
       keyUsages,
+      certSrv,
       ocspStaple,
       scts: scts,
       sKID,
