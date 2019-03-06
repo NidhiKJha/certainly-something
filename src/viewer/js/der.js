@@ -338,13 +338,11 @@ export const parse = async (der) => {
 
   // get the Microsoft Certificate Service Previous Certificate Hash
   let certSrv = {
-    applicationPolicy: getX509Ext(x509.extensions,
-      '1.3.6.1.4.1.311.21.2').parsedValue
+    prevHash: getX509Ext(x509.extensions, '1.3.6.1.4.1.311.21.2').parsedValue
   }
-  if (certSrv.applicationPolicy) {
+  if (certSrv.prevHash) {
     certSrv = {
       critical: criticalExtensions.includes('1.3.6.1.4.1.311.21.2'),
-      templateMajorVersion: certSrv.applicationPolicy.templateMajorVersion.value,
     };
   }
 

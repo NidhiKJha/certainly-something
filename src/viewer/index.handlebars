@@ -380,8 +380,8 @@
               </span>
             </div>
             <div class="panel-list-item">
-              <div class="text">Major Version</div>
-              <div class="text breakable">{{ this.ext.certSrv.applicationPolicy.parsedValue }}</div>
+              <div class="text">Previous Hash</div>
+              <div class="text breakable">{{#if this.ext.certSrv.prevHash.parsedValue}}{{ this.ext.certSrv.prevHash.parsedValue }}{{else}}Unknown{{/if}}</div>
             </div>
           {{/if}}
 
